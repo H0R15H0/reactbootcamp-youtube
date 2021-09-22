@@ -12,29 +12,36 @@ export const DashboardHeader = () => {
 
   return (
     <AppBar elevation={0} color="inherit">
-      <Toolbar>
-        <IconButton>
-          <MenuIcon />
-        </IconButton>
-        <div className={styles.logo}>
-          <Logo />
+      {/*
+        <Toolbar>に"between"のCSSを追加
+      */}
+      <Toolbar className={styles.between}>
+        {/*
+          <IconButton>とLogoを<div>で囲み、<div>にflexを付与
+        */}
+        <div className={styles.flex}>
+          <IconButton>
+            <MenuIcon />
+          </IconButton>
+          <div className={styles.logo}>
+            <Logo />
+          </div>
         </div>
 
         <SearchBar />
 
         {/*
-          新規動画作成のアイコンボタンを追加
+          2つの<IconButton>を<div>で囲み、<div>にflexを付与
         */}
-        <IconButton>
-          <VideoCallIcon />
-        </IconButton>
+        <div className={styles.flex}>
+          <IconButton>
+            <VideoCallIcon />
+          </IconButton>
 
-        {/*
-          プロフィールアイコンを追加
-        */}
-        <IconButton className={styles.profileIcon}>
-          <Avatar />
-        </IconButton>
+          <IconButton className={styles.profileIcon}>
+            <Avatar />
+          </IconButton>
+        </div>
       </Toolbar>
     </AppBar>
   );
