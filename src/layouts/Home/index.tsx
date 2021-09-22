@@ -1,19 +1,31 @@
 // src/layouts/Home/index.tsx
 
 import { Outlet } from "react-router-dom";
-
-// DashboardHeaderをimport
 import { DashboardHeader } from "../../templates/DashboardHeader";
+import { Sidebar } from "../../templates/Sidebar";
+import useStyles from "./style";
 
 export const HomeLayout = () => {
+  const styles = useStyles();
   return (
     <div>
-      {/*
-        DashboardHeaderコンポーネントを表示する
-      */}
+
       <DashboardHeader />
 
-      <Outlet />
+      {/*
+        Sidebarとメインコンポーネントを囲む<div>を作成し、Sidebarとメインコンポーネントを横並びにする
+      */}
+      <div className={styles.flex}>
+
+        <div className={styles.sidebar}>
+          <Sidebar />
+        </div>
+
+        <div className={styles.main}>
+          <Outlet />
+        </div>
+
+      </div>
     </div>
   );
 };
