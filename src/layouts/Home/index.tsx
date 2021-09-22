@@ -8,23 +8,22 @@ import useStyles from "./style";
 export const HomeLayout = () => {
   const styles = useStyles();
   return (
-    <div>
+
+    // 一番上位の<div>に対して"root"スタイリングを指定
+    // 今ままで`<div className={styles.flex}>`としていた要素は削除
+    <div className={styles.root}>
 
       <DashboardHeader />
 
       {/*
-        Sidebarとメインコンポーネントを囲む<div>を作成し、Sidebarとメインコンポーネントを横並びにする
+        `<div className={styles.flex}>`としていた要素は削除
       */}
-      <div className={styles.flex}>
+      <div className={styles.sidebar}>
+        <Sidebar />
+      </div>
 
-        <div className={styles.sidebar}>
-          <Sidebar />
-        </div>
-
-        <div className={styles.main}>
-          <Outlet />
-        </div>
-
+      <div className={styles.main}>
+        <Outlet />
       </div>
     </div>
   );

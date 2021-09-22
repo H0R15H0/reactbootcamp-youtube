@@ -2,15 +2,15 @@
 
 import { makeStyles } from "@material-ui/core";
 
-// Sidebarの幅を固定
 const SIDEBAR_WIDTH = 240;
-
 const APP_BAR = 64;
 
 export default makeStyles({
-  // 横並び
-  flex: {
+  // flexというスタイリングを「root」に変更。
+  // flexとminHeight:100%を指定する
+  root: {
     display: "flex",
+    minHeight: "100%",
   },
 
   sidebar: {
